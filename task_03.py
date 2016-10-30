@@ -1,19 +1,20 @@
 
 import decimal
+import fractions
 
-PROD1 = [xrange(0, 199999), xrange(1, 15), 'y', 3.63 ]
-PROD2 = [xrange(0, 199999), xrange(1, 15), 'n', 4.65]
-PROD3 = [xrange(0, 199999), xrange(16, 20), 'y', 4.04]
-PROD4 = [xrange(0, 199999), xrange(16, 20), 'n', 4.98]
-PROD5 = [xrange(0, 199999), xrange(21, 30), 'y', 5.77]
-PROD6 = [xrange(0, 199999), xrange(21, 30), 'n', 6.39]
-PROD7 = [xrange(200000, 999999), xrange(1, 15), 'y', 3.02]
-PROD8 = [xrange(200000, 999999), xrange(1, 15), 'n', 3.98]
-PROD9 = [xrange(200000, 999999), xrange(16, 20), 'y', 3.27]
-PROD10 = [xrange(200000, 999999), xrange(16, 20), 'n', 4.08]
-PROD11 = [xrange(200000, 999999), xrange(21, 30), 'y', 4.66]
-PROD12 = [xrange(1000000, ), xrange(1, 15), 'y', 2.05]
-PROD13 = [xrange(1000000, ), xrange(16, 20), 'y', 2.62]
+PROD1 = [xrange(0, 199999), xrange(1, 15), 'y', decimal.Decimal(3.63) ]
+PROD2 = [xrange(0, 199999), xrange(1, 15), 'n', decimal.Decimal(4.65)]
+PROD3 = [xrange(0, 199999), xrange(16, 20), 'y', decimal.Decimal(4.04)]
+PROD4 = [xrange(0, 199999), xrange(16, 20), 'n', decimal.Decimal(4.98)]
+PROD5 = [xrange(0, 199999), xrange(21, 30), 'y', decimal.Decimal(5.77)]
+PROD6 = [xrange(0, 199999), xrange(21, 30), 'n', decimal.Decimal(6.39)]
+PROD7 = [xrange(200000, 999999), xrange(1, 15), 'y', decimal.Decimal(3.02)]
+PROD8 = [xrange(200000, 999999), xrange(1, 15), 'n', decimal.Decimal(3.98)]
+PROD9 = [xrange(200000, 999999), xrange(16, 20), 'y', decimal.Decimal(3.27)]
+PROD10 = [xrange(200000, 999999), xrange(16, 20), 'n', decimal.Decimal(4.08)]
+PROD11 = [xrange(200000, 999999), xrange(21, 30), 'y', decimal.Decimal(4.66)]
+PROD12 = [xrange(1000000, ), xrange(1, 15), 'y', decimal.Decimal(2.05)]
+PROD13 = [xrange(1000000, ), xrange(16, 20), 'y', decimal.Decimal(2.62)]
 
 N = 12
 
@@ -76,6 +77,6 @@ elif AMOUNT in PROD12[0] or PROD13[0]:
             RATE = PROD13[3]
         else:
             RATE = None
-print '{}, your requested amount is {}. The length of the term is {}. {}.your rate {}'.format(NAME, AMOUNT, YEARS, QUAL, RATE)
-TOTAL = (AMOUNT * ((1+\frac{RATE}{12})^{12*YEARS}))
-print '{}'.format(TOTAL)
+
+TOTAL = (AMOUNT * (1 + fractions.Fraction(int((RATE * 12)) ^ (12*YEARS))))
+
